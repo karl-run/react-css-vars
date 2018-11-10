@@ -147,6 +147,29 @@ export default class App extends Component {
 
 For a full working example look at the [example](https://github.com/karl-run/react-css-vars/tree/master/example) project.
 
+## How does it work?
+
+It's very simple! CSS variables are simply CSS properties that are assigned to a specific element. You can assign them to a psuedo-element known as `:root` like this:
+
+```css
+:root {
+  --myVariable: palevioletred;
+}
+```
+
+This library simply takes a map of values that look like this:
+
+```js
+const theme = {
+  myVariable: 'red',
+}
+```
+
+And simply sets them as CSS properties on the `html` element. Since this has higher precedence than the `:root` psuedo-element the browser will always select the programatically set values over the ones set on `:root`.
+
+When the `theme`-prop changes, this library unsets the theme values that were previously set. If the `theme`-prop is set to null it will unset the previous values and not set any new ones. Any values on `:root` will then have the highest precedence again.
+
+
 ## License
 
 MIT © [karl-run](https://github.com/karl-run)
