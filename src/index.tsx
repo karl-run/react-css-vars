@@ -1,23 +1,39 @@
 /**
- * @class ExampleComponent
+ * @class ThemeLoader
  */
 
 import * as React from 'react'
 
-import styles from './styles.css'
+interface Props {
+  theme: { [key: string]: string }
+}
 
-export type Props = { text: string }
+class ThemeSwitcher extends React.Component<Props> {
+  componentDidMount() {
+    if (this.props.theme) {
+      this.updateCssVariables(this.props.theme)
+    }
+  }
 
-export default class ExampleComponent extends React.Component<Props> {
+  componentDidUpdate(prevProps: any) {
+    if (prevProps.theme !== this.props.theme) {
+      this.updateCssVariables(this.props.theme)
+    }
+  }
+
+  updateCssVariables(variables: { [key: string]: string }) {
+    Object.keys(variables).forEach((key: string) => {
+      if (document == null || document.documentElement == null) return
+
+      document.documentElement.style.setProperty(`--${key}`, variables[key])
+    })
+  }
+
   render() {
-    const {
-      text
-    } = this.props
+    if (this.props.theme == null) return null
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
+    return this.props.children || null
   }
 }
+
+export default ThemeSwitcher
