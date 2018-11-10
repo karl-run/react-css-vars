@@ -2,6 +2,8 @@
 
 A simple way to theme your React application using pure CSS variables.
 
+![Example](./example.gif)
+
 ## Why?
 
 Because CSS variables are fast. React doesn't have to lift a finger when the style changes globally.
@@ -9,6 +11,8 @@ Because CSS variables are fast. React doesn't have to lift a finger when the sty
 ## Can I use it?
 
 If you support modern browsers, you can use it!
+
+Have a look at [caniuse.com](https://caniuse.com/#feat=css-variables) to make sure.
 
 ## Install
 
