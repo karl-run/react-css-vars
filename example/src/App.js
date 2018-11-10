@@ -33,7 +33,7 @@ export default class App extends Component {
             Hello I am example, <span>colored</span> using css variables.
           </div>
           <button onClick={this.handleToggleTheme}>Change theme!</button>
-          <a href="TODO">Source</a>
+          <a href="https://github.com/karl-run/react-css-vars">Source</a>
         </div>
       </ThemeSwitcher>
     )
