@@ -1,4 +1,4 @@
-# react-css-vars [![NPM](https://img.shields.io/npm/v/react-css-vars.svg)](https://www.npmjs.com/package/react-css-vars) [![npm bundle size (minified)](https://img.shields.io/bundlephobia/minzip/react-css-vars.svg)](https://github.com/karl-run/react-css-vars)
+# react-css-vars [![Build Status](https://travis-ci.org/karl-run/react-css-vars.svg?branch=master)](https://travis-ci.org/karl-run/react-css-vars) [![NPM](https://img.shields.io/npm/v/react-css-vars.svg)](https://www.npmjs.com/package/react-css-vars) [![npm bundle size (minified)](https://img.shields.io/bundlephobia/minzip/react-css-vars.svg)](https://github.com/karl-run/react-css-vars)
 
 A simple way to theme your React application using pure CSS variables.
 
@@ -168,7 +168,6 @@ const theme = {
 And simply sets them as CSS properties on the `html` element. Since this has higher precedence than the `:root` psuedo-element the browser will always select the programatically set values over the ones set on `:root`.
 
 When the `theme`-prop changes, this library unsets the theme values that were previously set. If the `theme`-prop is set to null it will unset the previous values and not set any new ones. Any values on `:root` will then have the highest precedence again.
-
 
 ## License
 
