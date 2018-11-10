@@ -29,38 +29,16 @@ class ThemeSwitcher extends React.Component<Props> {
       } else {
         if (prevProps.theme != null) {
           this.unsetCssVariables(prevProps.theme)
-        } else {
-          this.resetTheme()
         }
       }
     }
-  }
-
-  resetTheme() {
-    if (document == null || document.documentElement == null) return
-
-    const { style } = document.documentElement
-
-    const propsToRemove = []
-    for (const prop in style) {
-      if (style.hasOwnProperty(prop)) {
-        const element = style[prop]
-        if (element.startsWith('--')) {
-          propsToRemove.push(element)
-        }
-      }
-    }
-
-    propsToRemove.forEach(prop => {
-      style.removeProperty(prop)
-    })
   }
 
   unsetCssVariables(variables: ThemeMap) {
     Object.keys(variables).forEach((key: string) => {
       if (document == null || document.documentElement == null) return
 
-      document.documentElement.style.setProperty(`--${key}`, null)
+      document.documentElement.style.removeProperty(`--${key}`)
     })
   }
 
