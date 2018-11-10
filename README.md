@@ -1,8 +1,7 @@
-# react-css-vars
+# react-css-vars [![NPM](https://img.shields.io/npm/v/react-css-vars.svg)](https://www.npmjs.com/package/react-css-vars) [![npm bundle size (minified)](https://img.shields.io/bundlephobia/minzip/react-css-vars.svg)](https://github.com/karl-run/react-css-vars)
 
-> 
+A simple way to theme your React application using pure CSS-variables.
 
-[![NPM](https://img.shields.io/npm/v/react-css-vars.svg)](https://www.npmjs.com/package/react-css-vars) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
