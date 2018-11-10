@@ -1,7 +1,7 @@
 {
   "name": "react-css-vars",
   "version": "1.1.2",
-  "description": "",
+  "description": "A simple way to theme your React application using pure CSS variables.",
   "author": "karl-run",
   "license": "MIT",
   "repository": "karl-run/react-css-vars",
@@ -29,7 +29,6 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
