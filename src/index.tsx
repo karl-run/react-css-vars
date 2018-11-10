@@ -1,11 +1,11 @@
 /**
- * @class ThemeLoader
+ * @class ThemeSwitcher
  */
 
 import * as React from 'react'
 
 interface Props {
-  theme: { [key: string]: string }
+  theme: { [key: string]: string } | null
 }
 
 class ThemeSwitcher extends React.Component<Props> {
@@ -16,7 +16,7 @@ class ThemeSwitcher extends React.Component<Props> {
   }
 
   componentDidUpdate(prevProps: any) {
-    if (prevProps.theme !== this.props.theme) {
+    if (prevProps.theme !== this.props.theme && this.props.theme != null) {
       this.updateCssVariables(this.props.theme)
     }
   }
