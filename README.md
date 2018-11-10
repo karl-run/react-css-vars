@@ -54,6 +54,12 @@ In your CSS you can use these variables.
 }
 ```
 
+### Careful with multiple instances
+
+This project writes the CSS variables directly to the `html` element (see the "How does it work" section for more details). So if you have two or more `ThemeSwitcher` in your application they might work against eachother.
+
+However, you may have it anywhere in your application, it does not need to wrap your application like typical `Provider`-pattern type solutions do. You can use `ThemeSwitcher` without providing any children as well.
+
 ## Switching theme
 
 To dynamically switch themes, simply provide a different theme as the `theme`-prop.
