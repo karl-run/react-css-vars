@@ -26,10 +26,12 @@ class ThemeSwitcher extends React.Component<Props> {
           this.unsetCssVariables(prevProps.theme)
         }
         this.setCssVariables(this.props.theme)
-        return
       } else {
-        this.resetTheme()
-        return
+        if (prevProps.theme != null) {
+          this.unsetCssVariables(prevProps.theme)
+        } else {
+          this.resetTheme()
+        }
       }
     }
   }
