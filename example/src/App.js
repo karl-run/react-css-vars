@@ -22,8 +22,6 @@ export default class App extends Component {
   }
 
   handleToggleTheme = themeIndex => {
-    console.log(themeIndex)
-
     this.setState({ themeIndex })
   }
 
