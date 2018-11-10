@@ -1,0 +1,8 @@
+{
+  "short_name": "react-css-vars",
+  "name": "react-css-vars",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
