@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 import ThemeSwitcher from 'react-css-vars'
 
 const myFirstTheme = {
-  myBackground: 'darkslategray',
-  myColor: 'white',
-  myAccent: 'mediumseagreen',
+  myBackground: 'palevioletred',
+  myColor: 'purple',
+  myAccent: 'darkred',
 }
 
 const mySecondTheme = {
@@ -14,25 +14,33 @@ const mySecondTheme = {
   myAccent: 'blue',
 }
 
+const themes = [myFirstTheme, mySecondTheme]
+
 export default class App extends Component {
   state = {
-    useOtherTheme: false,
+    themeIndex: null,
   }
 
-  handleToggleTheme = () => {
-    this.setState(prevState => ({ useOtherTheme: !prevState.useOtherTheme }))
+  handleToggleTheme = themeIndex => {
+    console.log(themeIndex)
+
+    this.setState({ themeIndex })
   }
 
   render() {
-    const { useOtherTheme } = this.state
+    const { themeIndex } = this.state
 
     return (
-      <ThemeSwitcher theme={useOtherTheme ? mySecondTheme : myFirstTheme}>
+      <ThemeSwitcher theme={themeIndex != null ? themes[themeIndex] : null}>
         <div className="exampleText">
           <div>
             Hello I am example, <span>colored</span> using css variables.
           </div>
-          <button onClick={this.handleToggleTheme}>Change theme!</button>
+          <div>
+            <button onClick={() => this.handleToggleTheme(null)}>Reset</button>
+            <button onClick={() => this.handleToggleTheme(0)}>Theme 1</button>
+            <button onClick={() => this.handleToggleTheme(1)}>Theme 2</button>
+          </div>
           <a href="https://github.com/karl-run/react-css-vars">Source</a>
         </div>
       </ThemeSwitcher>

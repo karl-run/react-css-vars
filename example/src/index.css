@@ -33,7 +33,11 @@ a {
   color: var(--myAccent);
 }
 
-.exampleText > button {
+.exampleText > div:nth-of-type(2) {
+  display: flex;
+}
+
+.exampleText button {
   background: none;
   border: none;
   padding: 4px;
