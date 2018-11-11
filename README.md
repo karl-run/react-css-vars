@@ -58,6 +58,14 @@ In your CSS you can use these variables.
 }
 ```
 
+### Props 
+
+##### ThemeSwitcher:
+| Property      | Type          | Default             | Description |
+| ------------- |:-------------:|:------------:       | ----------- |
+| theme         | Object        | null                | **required** `{ key: value }`-map of variables and their values
+| elementId     | string        | null                | used to apply the variables to a different element that `html`. The element is only referenced on component mount, so it needs to be a static DOM-node that doesn't change (i.e. probably not a React-element). Common use-case is the `#root` node that most React-apps renders into.
+
 ### Careful with multiple instances
 
 This project writes the CSS variables directly to the `html` element (see the "How does it work" section for more details). So if you have two or more `ThemeSwitcher` in your application they might work against eachother.
