@@ -9,11 +9,22 @@ type ThemeMap = {
 }
 
 interface Props {
+  elementId?: string
   theme: { [key: string]: string } | null
 }
 
 class ThemeSwitcher extends React.Component<Props> {
+  static defaultProps = {
+    elementId: null,
+  }
+
+  optionalElement: HTMLElement | null = null
+
   componentDidMount() {
+    if (this.props.elementId != null) {
+      this.optionalElement = document.getElementById(this.props.elementId)
+    }
+
     if (this.props.theme) {
       this.setCssVariables(this.props.theme)
     }
@@ -35,18 +46,22 @@ class ThemeSwitcher extends React.Component<Props> {
   }
 
   unsetCssVariables(variables: ThemeMap) {
-    Object.keys(variables).forEach((key: string) => {
-      if (document == null || document.documentElement == null) return
+    const element = this.optionalElement || document.documentElement
 
-      document.documentElement.style.removeProperty(`--${key}`)
+    Object.keys(variables).forEach((key: string) => {
+      if (element == null) return
+
+      element.style.removeProperty(`--${key}`)
     })
   }
 
   setCssVariables(variables: ThemeMap) {
-    Object.keys(variables).forEach((key: string) => {
-      if (document == null || document.documentElement == null) return
+    const element = this.optionalElement || document.documentElement
 
-      document.documentElement.style.setProperty(`--${key}`, variables[key])
+    Object.keys(variables).forEach((key: string) => {
+      if (element == null) return
+
+      element.style.setProperty(`--${key}`, variables[key])
     })
   }
 

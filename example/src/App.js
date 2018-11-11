@@ -29,7 +29,7 @@ export default class App extends Component {
     const { themeIndex } = this.state
 
     return (
-      <ThemeSwitcher theme={themeIndex != null ? themes[themeIndex] : null}>
+      <ThemeSwitcher theme={themeIndex != null ? themes[themeIndex] : null} elementId="root">
         <div className="exampleText">
           <div>
             Hello I am example, <span>colored</span> using css variables.

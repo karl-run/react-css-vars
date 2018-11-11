@@ -133,4 +133,41 @@ describe('ThemeSwitcher', () => {
       expect(setSpy).toHaveBeenCalledWith('--variableTwo', 'white')
     })
   })
+
+  describe('integration', () => {
+    it('shall find the correct element and use it instead of documentElement', () => {
+      const fakeElement = document.createElement('div')
+      const fakeElementSetSpy = jest.spyOn(fakeElement.style, 'setProperty')
+      const fakeElementRemoveSpy = jest.spyOn(fakeElement.style, 'removeProperty')
+      const getByIdSpy = jest.spyOn(document, 'getElementById').mockImplementationOnce(() => fakeElement)
+
+      const wrapper = mount<ThemeSwitcher>(<ThemeSwitcher theme={basicTheme} elementId="test_root" />)
+
+      // Alternative element is assigned as a class field
+      expect(getByIdSpy).toHaveBeenCalledTimes(1)
+      expect(getByIdSpy).toHaveBeenCalledWith('test_root')
+
+      // Theme is set on said element instead of documentElement
+      expect(fakeElementSetSpy).toHaveBeenCalledTimes(2)
+      expect(fakeElementSetSpy).toHaveBeenCalledWith('--variableOne', 'red')
+      expect(fakeElementSetSpy).toHaveBeenCalledWith('--variableTwo', 'white')
+
+      expect(fakeElementRemoveSpy).toHaveBeenCalledTimes(0)
+
+      // Reset mocks so we can check that changing theme works
+      fakeElementSetSpy.mockReset()
+
+      wrapper.setProps({ theme: differentTheme })
+
+      // Removing "basicTheme" on custom element
+      expect(fakeElementRemoveSpy).toHaveBeenCalledTimes(2)
+      expect(fakeElementRemoveSpy).toHaveBeenCalledWith('--variableOne')
+      expect(fakeElementRemoveSpy).toHaveBeenCalledWith('--variableTwo')
+
+      // Setting "differentTheme" on custom element
+      expect(fakeElementSetSpy).toHaveBeenCalledTimes(2)
+      expect(fakeElementSetSpy).toHaveBeenCalledWith('--variableOne', 'blue')
+      expect(fakeElementSetSpy).toHaveBeenCalledWith('--variableThree', 'hotpink')
+    })
+  })
 })
