@@ -1,6 +1,6 @@
 {
   "name": "react-css-vars",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A simple way to theme your React application using pure CSS variables.",
   "author": "karl-run",
   "license": "MIT",
