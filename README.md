@@ -1,4 +1,12 @@
-# react-css-vars [![Build Status](https://travis-ci.org/karl-run/react-css-vars.svg?branch=master)](https://travis-ci.org/karl-run/react-css-vars) [![NPM](https://img.shields.io/npm/v/react-css-vars.svg)](https://www.npmjs.com/package/react-css-vars) [![npm bundle size (minified)](https://img.shields.io/bundlephobia/minzip/react-css-vars.svg)](https://github.com/karl-run/react-css-vars) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0d92c8e7e3534752ba599f6c62d4bdc8)](https://www.codacy.com/app/karloveraa/react-css-vars?utm_source=github.com&utm_medium=referral&utm_content=karl-run/react-css-vars&utm_campaign=Badge_Grade)
+# react-css-vars [![npm bundle size (minified)](https://img.shields.io/bundlephobia/minzip/react-css-vars.svg)](https://github.com/karl-run/react-css-vars) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0d92c8e7e3534752ba599f6c62d4bdc8)](https://www.codacy.com/app/karloveraa/react-css-vars?utm_source=github.com&utm_medium=referral&utm_content=karl-run/react-css-vars&utm_campaign=Badge_Grade)
+
+---
+
+# ⚠️ This library is not supported ⚠️
+
+But the code is pretty simple, you can copy paste the concepts.
+
+---
 
 A simple way to theme your React application using pure CSS variables.
 
